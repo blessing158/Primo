@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>Miity</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#0A0A0A;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* NAVBAR */
+
+    .navbar{
+      width:100%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 20px;
+      background:#111111;
+      border-bottom:1px solid #2A2A2A;
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
+
+    .logo{
+      color:#D4AF37;
+      font-size:32px;
+      font-weight:bold;
+    }
+
+    .nav-links{
+      display:flex;
+      gap:15px;
+      color:#CCCCCC;
+      font-size:14px;
+    }
+
+    /* HERO */
+
+    .hero{
+      padding:70px 20px;
+      text-align:center;
+
+      background:
+      linear-gradient(
+      135deg,
+      #7A0000,
+      #B8860B
+      );
+
+      border-radius:0 0 40px 40px;
+    }
+
+    .hero h1{
+      font-size:42px;
+      line-height:1.3;
+      max-width:800px;
+      margin:auto;
+    }
+
+    .hero p{
+      margin-top:20px;
+      font-size:18px;
+      color:#F1F1F1;
+      max-width:700px;
+      margin-left:auto;
+      margin-right:auto;
+      line-height:1.6;
+    }
+
+    .hero-buttons{
+      margin-top:35px;
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn-primary{
+      background:#D4AF37;
+      color:black;
+      border:none;
+      padding:16px 30px;
+      border-radius:16px;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .btn-secondary{
+      background:transparent;
+      border:1px solid #D4AF37;
+      color:#D4AF37;
+      padding:16px 30px;
+      border-radius:16px;
+      font-size:16px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    /* SECTION */
+
+    .section{
+      padding:50px 20px;
+      max-width:1200px;
+      margin:auto;
+    }
+
+    .section-title{
+      font-size:32px;
+      margin-bottom:25px;
+    }
+
+    /* GRID */
+
+    .grid{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(240px,1fr));
+
+      gap:20px;
+    }
+
+    .card{
+      background:#151515;
+      border:1px solid #2A2A2A;
+      padding:25px;
+      border-radius:24px;
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card h2{
+      font-size:24px;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:#CCCCCC;
+      line-height:1.6;
+      font-size:16px;
+    }
+
+    /* SHOWCASE */
+
+    .phone-showcase{
+      display:flex;
+      gap:20px;
+      overflow-x:auto;
+      padding-bottom:10px;
+    }
+
+    .phone{
+      min-width:260px;
+      height:520px;
+
+      background:
+      linear-gradient(
+      180deg,
+      #171717,
+      #232323
+      );
+
+      border-radius:35px;
+      border:1px solid #333333;
+      padding:20px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .phone::before{
+      content:'';
+      width:100px;
+      height:8px;
+      background:#333333;
+      border-radius:20px;
+
+      position:absolute;
+      top:12px;
+      left:50%;
+      transform:translateX(-50%);
+    }
+
+    .phone-content{
+      margin-top:50px;
+    }
+
+    .message{
+      background:#7A0000;
+      padding:14px;
+      border-radius:16px;
+      margin-bottom:14px;
+      width:80%;
+    }
+
+    .message2{
+      background:#333333;
+      padding:14px;
+      border-radius:16px;
+      margin-bottom:14px;
+      width:70%;
+      margin-left:auto;
+    }
+
+    .ai-box{
+      background:
+      linear-gradient(
+      135deg,
+      #7A0000,
+      #B8860B
+      );
+
+      padding:20px;
+      border-radius:20px;
+      margin-top:20px;
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(220px,1fr));
+
+      gap:18px;
+    }
+
+    .stat{
+      background:#151515;
+      border:1px solid #2A2A2A;
+      padding:30px;
+      border-radius:24px;
+      text-align:center;
+    }
+
+    .stat h1{
+      color:#D4AF37;
+      font-size:36px;
+      margin-bottom:10px;
+    }
+
+    .stat p{
+      color:#CCCCCC;
+    }
+
+    /* CTA */
+
+    .cta{
+      text-align:center;
+
+      background:
+      linear-gradient(
+      135deg,
+      #181818,
+      #252525
+      );
+
+      padding:70px 20px;
+      border-radius:35px;
+    }
+
+    .cta h1{
+      font-size:38px;
+      margin-bottom:18px;
+    }
+
+    .cta p{
+      color:#CCCCCC;
+      font-size:18px;
+      margin-bottom:30px;
+      line-height:1.6;
+    }
+
+    /* FOOTER */
+
+    footer{
+      padding:35px 20px;
+      text-align:center;
+      color:#777777;
+      border-top:1px solid #1F1F1F;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:34px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .section-title{
+        font-size:28px;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <div class="navbar">
+
+    <div class="logo">
+      MIITY
+    </div>
+
+    <div class="nav-links">
+      <span>Chat</span>
+      <span>AI</span>
+      <span>Communities</span>
+      <span>Music</span>
+      <span>Tutorials</span>
+    </div>
+
+  </div>
+
+  <!-- HERO -->
+
+  <div class="hero">
+
+    <h1>
+      One app for communication,
+      learning and entertainment.
+    </h1>
+
+    <p>
+      Chat with friends, join communities,
+      download music and videos,
+      discover tutorials,
+      and use AI tools in one place.
+    </p>
+
+    <div class="hero-buttons">
+
+      <button class="btn-primary">
+        Open Miity
+      </button>
+
+      <button class="btn-secondary">
+        Explore Features
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- FEATURES -->
+
+  <div class="section">
+
+    <h1 class="section-title">
+      Main Features
+    </h1>
+
+    <div class="grid">
+
+      <div class="card">
+        <h2>💬 Messaging</h2>
+
+        <p>
+          Fast realtime messaging with media sharing,
+          voice notes and group chats.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🤖 AI Assistant</h2>
+
+        <p>
+          Get help with questions,
+          summaries and smart replies.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🌍 Communities</h2>
+
+        <p>
+          Join gaming, study,
+          business and creator groups.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🎵 Music Downloads</h2>
+
+        <p>
+          Save music offline and organize playlists easily.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>🎬 Video Downloads</h2>
+
+        <p>
+          Download videos for offline viewing and sharing.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>📚 Tutorials</h2>
+
+        <p>
+          Learn coding, gaming,
+          editing and business skills.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- APP SHOWCASE -->
+
+  <div class="section">
+
+    <h1 class="section-title">
+      Experience Miity
+    </h1>
+
+    <div class="phone-showcase">
+
+      <!-- CHAT -->
+
+      <div class="phone">
+
+        <div class="phone-content">
+
+          <h2 style="margin-bottom:20px;">
+            💬 Chats
+          </h2>
+
+          <div class="message">
+            Are we joining the gaming event tonight?
+          </div>
+
+          <div class="message2">
+            Yes. Miity already reminded me.
+          </div>
+
+          <div class="message">
+            Nice 🔥
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- AI -->
+
+      <div class="phone">
+
+        <div class="phone-content">
+
+          <h2 style="margin-bottom:20px;">
+            🤖 AI Assistant
+          </h2>
+
+          <div class="ai-box">
+
+            Summarize chats,
+            answer questions,
+            and help organize your day.
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- COMMUNITY -->
+
+      <div class="phone">
+
+        <div class="phone-content">
+
+          <h2 style="margin-bottom:20px;">
+            🌍 Communities
+          </h2>
+
+          <div class="card">
+            🎮 Gaming Hub
+          </div>
+
+          <br>
+
+          <div class="card">
+            🚀 Startup Network
+          </div>
+
+          <br>
+
+          <div class="card">
+            🎵 Music Creators
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- STATS -->
+
+  <div class="section">
+
+    <h1 class="section-title">
+      Why Miity
+    </h1>
+
+    <div class="stats">
+
+      <div class="stat">
+        <h1>Fast</h1>
+        <p>Optimized for smooth performance</p>
+      </div>
+
+      <div class="stat">
+        <h1>Private</h1>
+        <p>Built with privacy in mind</p>
+      </div>
+
+      <div class="stat">
+        <h1>Smart</h1>
+        <p>Integrated AI assistance</p>
+      </div>
+
+      <div class="stat">
+        <h1>Useful</h1>
+        <p>Communication, learning and entertainment together</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+
+  <div class="section">
+
+    <div class="cta">
+
+      <h1>
+        Communication made smarter.
+      </h1>
+
+      <p>
+        Built for modern people who want
+        messaging, communities,
+        downloads and learning in one app.
+      </p>
+
+      <button class="btn-primary">
+        Join Miity
+      </button>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+
+  <footer>
+    Miity © 2026 — Communication Reimagined
+  </footer>
+
+</body>
+</html>
